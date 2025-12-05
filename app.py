@@ -8,25 +8,11 @@ app = Flask(__name__)
 CORS(app)
 
 # Load model
-# Load model – SUPER LIGHT VERSION (fits in 512 MB on Render free)
-print("Chat'bruti se réveille... wallah ça va être rapide !")
-
-import torch
-
-tokenizer = GPT2Tokenizer.from_pretrained("distilgpt2")
-tokenizer.pad_tokenizer.pad_token = tokenizer.eos_token
-
-model = GPT2LMHeadModel.from_pretrained(
-    "distilgpt2",
-    torch_dtype=torch.float16,        # half precision = less RAM
-    low_cpu_mem_usage=True,           # load model piece by piece
-    device_map="auto"                 # uses GPU if Render gives one
-)
-
-# Optional: force CPU only if you want to be 1000% safe
-# model = model.to('cpu')
-
-print("Chat'bruti est prêt à raconter n'importe quoi !")
+print("Loading GPT-2 model... (wait 1-2 min first time)")
+tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+model = GPT2LMHeadModel.from_pretrained("gpt2")
+tokenizer.pad_token = tokenizer.eos_token
+print("Model loaded! Chat'bruti is ready")
 
 quirks = [
     "Fun fact: the moon is just a big mloukhiya ball that forgot to fall.",
