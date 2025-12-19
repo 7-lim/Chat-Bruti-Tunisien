@@ -1,7 +1,7 @@
 # Chat'bruti – Nuit de l'Info 2025
 
-Équipe : [Nom de votre équipe]  
-École : [Votre école]
+Équipe : RM 
+École : EPI Digital school
 
 ## Lien de la démo en ligne
 https://chatbruti.onrender.com
